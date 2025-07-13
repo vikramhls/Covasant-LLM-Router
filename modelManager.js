@@ -9,6 +9,10 @@ const processes = {};
 
 // 🧠 Run model if not already running
 function runModel(modelName) {
+    if(modelName=="unknown")
+    {
+        console.log("sexy banna")
+    }
     return new Promise((resolve) => {
         if (processes[modelName]) {
             console.log(`✅ ${modelName} already running`);

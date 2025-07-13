@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function ollamaAnalysis(prompt, model, onChunk) {
+async function ollamaAnalysis(prompt, model, onChunk, maxTokens = 100) {
     return new Promise(async (resolve, reject) => {
         try {
             const response = await axios.post(
@@ -8,37 +8,61 @@ async function ollamaAnalysis(prompt, model, onChunk) {
                 {
                     model,
                     prompt,
-                    stream: true
+                    stream: true // Let the model flow naturally
                 },
                 {
                     responseType: 'stream'
                 }
             );
 
+            let buffer = '';
+            let fullResponse = '';
+
             response.data.on('data', (chunk) => {
-                const lines = chunk.toString().split('\n').filter(Boolean);
+                buffer += chunk.toString();
+                const lines = buffer.split('\n');
+                buffer = lines.pop(); // handle incomplete line
+
                 for (const line of lines) {
+                    if (!line.trim()) continue;
+
                     try {
                         const json = JSON.parse(line);
                         if (json.response) {
-                            onChunk(json.response); // ✅ send text back to caller
+                            fullResponse += json.response;
+                            onChunk(json.response); // stream to user
                         }
                     } catch (err) {
-                        console.warn('⛔ JSON parse error:', err);
+                        console.warn('⚠️ JSON parse error (ignored line):', line);
                     }
                 }
             });
 
             response.data.on('end', () => {
-                resolve(); // ✅ model finished streaming
+                // After full response, process it sentence-wise
+                const sentences = fullResponse.match(/[^.!?]+[.!?]+/g) || [fullResponse];
+
+                let output = '';
+                let tokenCount = 0;
+
+                for (const sentence of sentences) {
+                    const sentenceTokens = sentence.trim().split(/\s+/).length;
+                    if (tokenCount + sentenceTokens > maxTokens) break;
+                    output += sentence;
+                    tokenCount += sentenceTokens;
+                }
+
+                // Call onChunk with final trimmed coherent result
+                onChunk('\n\n--- Final Trimmed Response ---\n' + output.trim());
+                resolve();
             });
 
             response.data.on('error', (err) => {
-                reject(err); // will be caught in /evaluate route
+                reject(err);
             });
 
         } catch (error) {
-            reject(error); // catch fetch errors
+            reject(error);
         }
     });
 }

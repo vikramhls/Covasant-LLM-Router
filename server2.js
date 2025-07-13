@@ -5,23 +5,21 @@ const cors = require('cors');
 const path = require('path');
 const { performance } = require('perf_hooks');
 const OllamaAnalysis = require('./ollamaService');
-const { log } = require('console');
-const { OpenAI } = require('openai');
-const promptRoutes = require('./routes/prompt');
+
 const app = express();
 const axios = require('axios')
 const { judgeAccuracyWithOpenAI } = require('./utils/openaiJudge');
-// Setup view engine
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Middlewares
+
 app.use(compression({ threshold: 0 }));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ensure res.flush is defined
+
 app.use((req, res, next) => {
   if (!res.flush) {
     res.flush = () => {
@@ -33,9 +31,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Route for UI
+
 app.get('/', (req, res) => {
-  res.render('index'); // index.ejs must exist in /views
+  res.render('index'); 
 });
 app.get('/evaluate', async (req, res) => {
   const { prompt } = req.query;
@@ -74,8 +72,8 @@ app.get('/evaluate', async (req, res) => {
 
     const responseText = chunks.join('');
     const latencyMs = performance.now() - startTime;
-    const accuracy = Math.random(); // Mock accuracy (0 to 1)
-
+    const accuracy = 1.0 // Mock accuracy (0 to 1)
+    //accuracy is random for now until shivam's work
     // Send model-done event
     res.write(`event: model-done\ndata: ${JSON.stringify({ model, latencyMs, accuracy })}\n\n`);
     res.flush();
