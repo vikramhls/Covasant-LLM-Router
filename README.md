@@ -70,7 +70,7 @@ graph TB
 
 ###  **Performance Metrics**
 - Real-time latency tracking (milliseconds)
-- Cost analysis per model
+
 - Transparency in model performance
 
 ###  **Modern Chat Interface**
