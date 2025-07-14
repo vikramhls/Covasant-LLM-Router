@@ -14,6 +14,80 @@
 </div>
 
 ---
+## Architecture
+
+```
+Node.js Express Server  ──────────► Python FastAPI Service
+    (Frontend)                      (AI Backend - Port 5001)
+```
+
+## Prerequisites
+
+- Python 3.8+
+- Node.js 16+
+- pip and npm
+
+## Installation & Setup
+
+### 1. Install Python Dependencies
+```bash
+cd python-ai-service
+pip install -r requirements.txt
+```
+
+### 2. Install Node.js Dependencies
+```bash
+npm install express dotenv axios compression cors ejs
+```
+
+## Running the Application
+
+### Terminal 1 - Python Backend Service
+```bash
+cd python-ai-service
+uvicorn main:app --reload --port 5001
+```
+
+### Terminal 2 - Node.js Frontend Server
+```bash
+node server2.js
+```
+
+## Project Structure
+
+```
+project-root/
+├── python-ai-service/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── ...
+├── server2.js
+├── package.json
+└── README.md
+```
+
+## Access Points
+
+- Python API: http://localhost:5001
+- Node.js Server: http://localhost:3000 (or configured port)
+- API Documentation: http://localhost:5001/docs
+
+## Dependencies
+
+### Python
+- FastAPI - Web framework
+- Uvicorn - ASGI server
+- Additional dependencies in requirements.txt
+
+### Node.js
+- Express - Web framework
+- Dotenv - Environment variables
+- Axios - HTTP client
+- Compression - Gzip compression
+- CORS - Cross-origin resource sharing
+- EJS - Template engine
+
+
 
 ##  Overview
 
