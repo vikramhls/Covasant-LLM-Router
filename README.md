@@ -20,7 +20,6 @@
 Node.js Express Server  ──────────► Python FastAPI Service
     (Frontend)                      (AI Backend - Port 5001)
 ```
-
 ## Prerequisites
 
 - Python 3.8+
@@ -28,6 +27,8 @@ Node.js Express Server  ──────────► Python FastAPI Service
 - pip and npm
 
 ## Installation & Setup
+
+
 
 ### 1. Install Python Dependencies
 ```bash
@@ -39,7 +40,30 @@ pip install -r requirements.txt
 ```bash
 npm install express dotenv axios compression cors ejs
 ```
+# Model Setup and Server Instructions
 
+## Setup Steps
+
+### 1. Extract MiniLM Model
+Extract the minilm-model from the my_model file that was downloaded.
+
+### 2. Download Required Files in Colab
+In your Colab environment, download the following files:
+- `label_encoder.pkl`
+- `svm_model.pkl`
+
+### 3. Organize Model Directory
+Create a `model` directory and place all the following files inside:
+- minilm-model (extracted from my_model)
+- label_encoder.pkl
+- svm_model.pkl
+
+
+
+## Notes
+- Ensure all model files are properly placed in the model directory before running
+- The server will initialize with the loaded models
+- Check console output for any errors during startup
 ## Running the Application
 
 ### Terminal 1 - Python Backend Service
@@ -56,15 +80,15 @@ node server2.js
 ## Project Structure
 
 ```
-project-root/
-├── python-ai-service/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── ...
-├── server2.js
-├── package.json
+project/
+├── model/
+│   ├── minilm-model/
+│   ├── label_encoder.pkl
+│   └── svm_model.pkl
+├── main.py
 └── README.md
 ```
+`
 
 ## Access Points
 
