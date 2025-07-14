@@ -34,6 +34,8 @@ Node.js Express Server  ──────────► Python FastAPI Service
 ```bash
 cd python-ai-service
 pip install -r requirements.txt
+https://drive.google.com/file/d/1xyKWg9BVWHUu3nRiN3UvrLnnLLut3R7B/view?usp=sharing
+(install this file and place in python-ai-service->model)
 ```
 
 ### 2. Install Node.js Dependencies
