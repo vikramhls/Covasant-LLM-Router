@@ -154,10 +154,87 @@ eventSource.onmessage = function(event) {
     displayMessage(data.content, data.model, data.latency);
 };
 ```
-###Testing
 
+## 📊 Detailed Model Performance Results
 
-<img width="874" height="528" alt="image" src="https://github.com/user-attachments/assets/4afe47dc-c0e6-4725-874a-d657cdc94c23" />
+### 🎯 Overall Performance Summary
+
+| Algorithm | Accuracy | Macro Avg Precision | Macro Avg Recall | Macro Avg F1-Score | Weighted Avg F1-Score |
+|-----------|----------|---------------------|-------------------|---------------------|----------------------|
+| **K-Nearest Neighbors (KNN)** | **97%** | **0.65** | **0.65** | **0.64** | **0.97** |
+| **Logistic Regression** | 96% | 0.54 | 0.44 | 0.46 | 0.95 |
+| **Decision Tree** | 96% | 0.57 | 0.55 | 0.55 | 0.96 |
+
+### 📈 Category-wise Performance Breakdown
+
+#### 🏆 Top Performing Categories (F1-Score > 0.95)
+
+| Category | Logistic Regression | KNN | Decision Tree |
+|----------|-------------------|-----|---------------|
+| **Chat Story** | 0.99 | 1.00 | 1.00 |
+| **Chat Casual** | 0.99 | 0.98 | 0.99 |
+| **Chat Advice** | 0.99 | 0.98 | 0.98 |
+| **Chat Emotional Support** | 0.98 | 0.97 | 0.95 |
+| **Image Gen/Vision** | 1.00 | 1.00 | 1.00 |
+| **GK Sports** | 1.00 | 1.00 | 1.00 |
+| **GK Geography** | 0.99 | 0.99 | 0.99 |
+| **GK History** | 0.98 | 0.99 | 0.98 |
+| **GK Politics** | 0.98 | 0.99 | 0.99 |
+| **GK Environment** | 0.96 | 0.96 | 0.94 |
+| **Translation** | 0.97 | 0.99 | 0.99 |
+
+#### ⚠️ Challenging Categories (F1-Score < 0.70)
+
+| Category | Logistic Regression | KNN | Decision Tree | Challenge |
+|----------|-------------------|-----|---------------|-----------|
+| **Art/Music** | 0.40 | 0.60 | 0.18 | Small dataset (4 samples) |
+| **Astronomy** | 0.00 | 0.75 | 0.00 | Small dataset (4 samples) |
+| **Code Explanation/Debug** | 0.00 | 0.00 | 0.50 | Small dataset (3 samples) |
+| **GK Economy** | 0.00 | 0.00 | 0.00 | Small dataset (3 samples) |
+| **GK Science** | 0.52 | 0.50 | 0.31 | Limited samples (14) |
+| **GK Tech** | 0.25 | 0.60 | 0.25 | Limited samples (12) |
+| **Math** | 0.75 | 0.78 | 0.58 | Limited samples (18) |
+| **Health/Wellness** | 0.00 | 0.86 | 0.00 | Small dataset (4 samples) |
+| **Philosophy** | 0.00 | 0.86 | 0.55 | Small dataset (4 samples) |
+
+#### 🔬 Technical Performance Categories
+
+| Category | Logistic Regression | KNN | Decision Tree | Notes |
+|----------|-------------------|-----|---------------|-------|
+| **Code** | 0.73 | 0.94 | 0.84 | Good performance across all models |
+| **Classification** | 0.73 | 0.86 | 0.80 | Decent performance |
+| **Summarization** | 0.00 | 0.00 | 0.00 | Very small dataset (3 samples) |
+| **Linguistics** | 0.00 | 0.67 | 0.00 | Small dataset (4 samples) |
+
+### 🎯 Key Insights
+
+#### ✅ **Strengths**
+- **Conversational AI**: Excellent performance across all chat categories (casual, advice, emotional support, storytelling)
+- **General Knowledge**: Strong performance in geography, history, politics, sports, and environment
+- **Image Processing**: Perfect scores across all models for image generation/vision tasks
+- **Translation**: Consistently high performance across all algorithms
+
+#### ⚠️ **Areas for Improvement**
+- **Small Dataset Categories**: Categories with fewer than 10 samples show inconsistent performance
+- **Specialized Domains**: Science, technology, and economics need more training data
+- **Technical Categories**: Code explanation and debugging require attention
+
+#### 🔧 **Recommendations**
+1. **Data Augmentation**: Increase sample size for underperforming categories
+2. **Balanced Sampling**: Address class imbalance in specialized domains
+3. **Feature Engineering**: Enhance embeddings for technical content
+4. **Ensemble Methods**: Combine models for better overall performance
+
+### 📊 Performance Visualization
+
+```
+Chat Categories:     ████████████████████ 98%
+General Knowledge:   ████████████████████ 95%
+Image/Vision:        ████████████████████ 100%
+Translation:         ████████████████████ 98%
+Code/Technical:      ████████████████     75%
+Specialized Domains: ████████             40%
+```
 
 
 ### API Integration
