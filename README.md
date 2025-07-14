@@ -68,9 +68,8 @@ project-root/
 
 ## Access Points
 
-- Python API: http://localhost:5001
 - Node.js Server: http://localhost:3000 (or configured port)
-- API Documentation: http://localhost:5001/docs
+
 
 ## Dependencies
 
