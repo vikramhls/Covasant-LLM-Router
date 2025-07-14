@@ -1,8 +1,8 @@
 #  Dynamic LLM Router
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Accuracy-99%25-brightgreen?style=for-the-badge&logo=target" alt="Accuracy">
-  <img src="https://img.shields.io/badge/F1--Score-0.84-blue?style=for-the-badge&logo=chart-line" alt="F1-Score">
+  <img src="https://img.shields.io/badge/Accuracy-92%25-brightgreen?style=for-the-badge&logo=target" alt="Accuracy">
+  <img src="https://img.shields.io/badge/F1--Score-0.90-blue?style=for-the-badge&logo=chart-line" alt="F1-Score">
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=FastAPI&logoColor=white" alt="FastAPI">
@@ -154,6 +154,9 @@ eventSource.onmessage = function(event) {
     displayMessage(data.content, data.model, data.latency);
 };
 ```
+###Testing
+<img width="874" height="528" alt="image" src="https://github.com/user-attachments/assets/4afe47dc-c0e6-4725-874a-d657cdc94c23" />
+
 
 ### API Integration
 ```bash
