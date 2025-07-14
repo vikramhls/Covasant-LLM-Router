@@ -87,23 +87,6 @@ project-root/
 - EJS - Template engine
 
 
-
-##  Overview
-
-The **Dynamic LLM Router** is a sophisticated full-stack system that intelligently routes prompts to the most suitable AI model based on advanced classification algorithms. Built for the **COVASANT Hackathon**, this project combines modern web technologies with machine learning to deliver optimal AI responses.
-
-###  The Challenge
-Different AI models (Gemma, Claude, Mistral, etc.) excel in different areas. Manual model selection is inefficient and suboptimal. Our solution automatically identifies the best model for each prompt type.
-
-###  Our Solution
-A real-time, intelligent routing system that:
-- **Classifies prompts** using advanced ML algorithms
-- **Routes to optimal models** automatically
-- **Streams responses** in real-time
-- **Tracks performance** with detailed metrics
-
----
-
 ##  System Architecture
 
 ```mermaid
