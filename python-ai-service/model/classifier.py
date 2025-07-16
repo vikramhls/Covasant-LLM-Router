@@ -9,9 +9,9 @@ svm_model = joblib.load(os.path.join("model", "svm_model.pkl"))
 label_encoder = joblib.load(os.path.join("model", "label_encoder.pkl"))
 
 # ✅ Load MiniLM for embeddings
-model_name = "sentence-transformers/all-MiniLM-L6-v2"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModel.from_pretrained(model_name)
+model_path = os.path.join("model", "minilm")
+tokenizer = AutoTokenizer.from_pretrained(model_path)
+model = AutoModel.from_pretrained(model_path)
 model.eval()
 
 # ✅ Create embedding from a prompt
