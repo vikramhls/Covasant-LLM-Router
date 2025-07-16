@@ -47,17 +47,13 @@ npm install express dotenv axios compression cors ejs
 
 ## Setup Steps
 
-### 1. Extract MiniLM Model
-Extract the minilm-model from the my_model file that was downloaded.
+### 1. Run the file "downloadminillmlocally.py" in python-ai-service, ensure internet connectivity while running 
 
-### 2. Download Required Files in Colab
-In your Colab environment, download the following files:
-- `label_encoder.pkl`
-- `svm_model.pkl`
 
-### 3. Organize Model Directory
+
+### 2. Organize Model Directory
 Create a `model` directory and place all the following files inside:
-- minilm-model (extracted from my_model)
+- minilm-model 
 - label_encoder.pkl
 - svm_model.pkl
 
