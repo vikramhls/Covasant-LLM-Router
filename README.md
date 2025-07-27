@@ -1,5 +1,6 @@
 #  Dynamic LLM Router
 
+
 <div align="center">
   <img src="https://img.shields.io/badge/Accuracy-99%25-brightgreen?style=for-the-badge&logo=target" alt="Accuracy">
   <img src="https://img.shields.io/badge/F1--Score-0.90-blue?style=for-the-badge&logo=chart-line" alt="F1-Score">
@@ -250,7 +251,7 @@ eventSource.onmessage = function(event) {
 
 | Category | Logistic Regression | KNN | Decision Tree |
 |----------|-------------------|-----|---------------|
-| **Chat Story** | 0.99 | 1.00 | 1.00 |
+| **Chat Story** | 0.998 | 1.00 | 1.00 |
 | **Chat Casual** | 0.99 | 0.98 | 0.99 |
 | **Chat Advice** | 0.99 | 0.98 | 0.98 |
 | **Chat Emotional Support** | 0.98 | 0.97 | 0.95 |
